@@ -1,0 +1,21 @@
+= Maven Project Log Configurer
+
+Gives the ability to configure the maven default logging from the project through properties.
+
+[source,xml]
+----
+<properties>
+  <org.slf4j.simpleLogger.showThreadName>true</org.slf4j.simpleLogger.showThreadName>
+  <org.slf4j.simpleLogger.showDateTime>true</org.slf4j.simpleLogger.showDateTime>
+  <org.slf4j.simpleLogger.dateTimeFormat>HH:mm:ss</org.slf4j.simpleLogger.dateTimeFormat>
+</properties>
+
+<!-- in build section -->
+<extensions>
+  <extension>
+    <groupId>com.github.rmannibucau</groupId>
+    <artifactId>maven-log-configurer-extension</artifactId>
+    <version>${configurer.version}</version>
+  </extension>
+</extensions>
+----
