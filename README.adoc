@@ -1,21 +1,72 @@
-= Maven Project Log Configurer
-
-Gives the ability to configure the maven default logging from the project through properties.
+= Some maven utilities
 
 [source,xml]
 ----
-<properties>
-  <org.slf4j.simpleLogger.showThreadName>true</org.slf4j.simpleLogger.showThreadName>
-  <org.slf4j.simpleLogger.showDateTime>true</org.slf4j.simpleLogger.showDateTime>
-  <org.slf4j.simpleLogger.dateTimeFormat>HH:mm:ss</org.slf4j.simpleLogger.dateTimeFormat>
-</properties>
-
-<!-- in build section -->
-<extensions>
-  <extension>
-    <groupId>com.github.rmannibucau</groupId>
-    <artifactId>maven-log-configurer-extension</artifactId>
-    <version>${configurer.version}</version>
-  </extension>
-</extensions>
+<plugin>
+  <groupId>com.github.rmannibucau</groupId>
+  <artifactId>common-maven-plugin</artifactId>
+  <version>${plugin.version}</version>
+</plugin>
 ----
+
+== RootLocation
+
+[source,xml]
+----
+<executions>
+  <execution>
+    <id>set-rootlocation</id>
+    <goals>
+      <goal>rootlocation</goal>
+    </goals>
+  </execution>
+</executions>
+----
+
+Sets the property `rootlocation` in project properties.
+
+NOTE: name is configurable.
+
+
+== Filter
+
+[source,xml]
+----
+<executions>
+  <execution>
+    <id>filter-file</id>
+    <goals>
+      <goal>filter</goal>
+    </goals>
+    <configuration>
+      <from>${project.basedir}/foo</from>
+      <to>${project.basedir}/bar</to>
+    </configuration>
+  </execution>
+</executions>
+----
+
+Sets the property `rootlocation` in project properties.
+
+NOTE: name is configurable.
+
+== Frontend Filter
+
+TIP: intended to be used with `frontend-maven-plugin`.
+
+[source,xml]
+----
+<executions>
+  <execution>
+    <id>frontend-filter</id>
+    <goals>
+      <goal>frontend-filter</goal>
+    </goals>
+  </execution>
+</executions>
+----
+
+`${project.basedir}/package-template.json` and `${project.basedir}/src/main/frontend/package-template.json`
+are filtered and copied to `${project.basedir}/package.json` or `${project.basedir}/src/main/frontend/package.json`.
+
+It allows to handle the versions in the `pom.xml` for instance.
