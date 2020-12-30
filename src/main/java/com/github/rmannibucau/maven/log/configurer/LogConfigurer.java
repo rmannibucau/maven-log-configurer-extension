@@ -65,6 +65,8 @@ public class LogConfigurer extends AbstractMavenLifecycleParticipant {
             } catch (final Exception e) {
                 throw new MavenExecutionException(e.getMessage(), e);
             }
+        } catch (final ClassNotFoundException cnfe) {
+            // no-op (mvnd)
         } catch (final Exception e) {
             throw new MavenExecutionException(e.getMessage(), e);
         } finally {
