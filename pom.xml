@@ -4,7 +4,7 @@
 
   <groupId>com.github.rmannibucau</groupId>
   <artifactId>maven-log-configurer-extension</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2-SNAPSHOT</version>
   <name>Maven Log Configurer</name>
   <description>Maven extension to configure the logging from the project properties</description>
   <url>https://github.com/rmannibucau/maven-log-configurer-extension</url>
@@ -33,7 +33,7 @@
     <connection>scm:git:https://github.com/rmannibucau/maven-log-configurer-extension.git</connection>
     <developerConnection>scm:git:https://github.com/rmannibucau/maven-log-configurer-extension.git</developerConnection>
     <url>https://github.com/rmannibucau/maven-log-configurer-extension</url>
-    <tag>maven-log-configurer-extension-1.0.1</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
